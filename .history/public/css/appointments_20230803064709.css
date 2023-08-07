@@ -1,0 +1,19 @@
+/* public/css/appointment.css */
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .mt-5 {
+    margin-top: 2rem;
+  }
+  
+  h2 {
+    margin-bottom: 1rem;
+  }
+  
+  .btn {
+    margin-top: 1rem;
+  }
+  

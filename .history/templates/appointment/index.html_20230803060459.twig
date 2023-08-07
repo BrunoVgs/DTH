@@ -1,0 +1,62 @@
+{# templates/appointment/form.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Prise de Rendez-vous{% endblock %}
+
+{% block body %}
+    <div class="block-container">
+        <div class="image-container">
+            <img class="img" src="{{ asset('images/01.png') }}" alt="Illustration">
+        </div>
+        <div class="form-container">
+            <h2>Prise de Rendez-vous</h2>
+            {% if app.session.flashBag.has('success') %}
+                <div class="alert alert-success">
+                    {{ app.session.flashBag.get('success')[0] }}
+                </div>
+            {% endif %}
+            <form method="post">
+                <div class="form-group">
+                    <label for="appointmentDate">Date du rendez-vous (entre 9h et 18h)</label>
+                    <input type="date" id="appointmentDate" name="appointment[appointmentDate]" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="appointmentTime">Heure du rendez-vous (entre 9h et 18h)</label>
+                    <input type="time" id="appointmentTime" name="appointment[appointmentTime]" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="bloodGroup">Groupe sanguin</label>
+                    <select id="bloodGroup" name="appointment[bloodGroup]" class="form-control" required>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="medication">Prise médicamenteuse régulière</label>
+                    <select id="medication" name="appointment[medication]" class="form-control" required>
+                        <option value="oui">Oui</option>
+                        <option value="non">Non</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" id="consent" name="appointment[consent]" required>
+                    <label for="consent">Je donne mon consentement pour le don de sang.</label>
+                </div>
+                {# Afficher une ligne pour chaque propriété passée depuis le formulaire précédent #}
+                {% for key, value in app.request.get('appointment') %}
+                    {% if key not in ['appointmentDate', 'appointmentTime', 'bloodGroup', 'medication', 'consent'] %}
+                        <p><small>{{ key }} : {{ value }}</small></p>
+                    {% endif %}
+                {% endfor %}
+                <button type="submit" class="custom-btn">Prendre Rendez-vous</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

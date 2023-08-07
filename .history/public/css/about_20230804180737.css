@@ -1,0 +1,116 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    background-color: #f7f7f7;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mt-5 {
+    margin-top: 5rem;
+}
+.mb-5 {
+    margin-bottom: 5rem;
+}
+
+.d-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mission-card {
+    margin-bottom: 30px;
+}
+
+.histoire-card {
+    margin-bottom: 30px;
+}
+
+.mission-card .row {
+    flex-direction: row;
+}
+
+.histoire-card .row {
+    flex-direction: row; /* Changed from "row-reverse" to "row" to place the image on the left */
+}
+
+.mission-card .col-md-6 {
+    text-align: left;
+
+}
+
+.histoire-card .col-md-6 {
+    text-align: right; 
+    margin-left: 0px;
+}
+
+.circle-image {
+    width: 540px;
+    height: 540px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 10px -20px;
+    margin-top: 20px;
+    box-shadow: 0 2px 10px -5px rgba(0, 0, 0, 0.1);
+    background-color: blue;
+}
+
+.circle-image img {
+    width: 100%;
+    height: 100%; 
+    border-radius: 50%;
+    object-fit: cover; 
+}
+
+
+.container {
+    max-width: 1600px; 
+    margin: 0 auto; 
+}
+
+.about-page {
+    padding: 50px 0; 
+    background: url(../images/heart.jpg);
+
+
+.custom-title {
+    font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-weight: 700;
+    color: #bd2130;
+    font-size: 2.5rem; 
+    margin-bottom: 1rem;
+}
+
+.custom-paragraph {
+    font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-weight: 400;
+    color: #4f4f4f;
+    line-height: 1.5; 
+    font-size: 1.2rem; 
+}
+
+.btn {
+    background-color: #bd2130;
+    color: #fff;
+    font-weight: 700;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.4s ease;
+}
+
+.btn:hover {
+    background-color: #a11924;
+    color: white;
+}
+
+.space {
+
+    height: 100px;
+}

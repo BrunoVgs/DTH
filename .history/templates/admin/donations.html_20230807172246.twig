@@ -1,0 +1,37 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}<title>Liste des Donations</title> {% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <h1>Liste des Donations</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Prénom du Donateur</th>
+                <th scope="col">Nom du Donateur</th>
+                <th scope="col">Centre de Collecte</th>
+                <th scope="col">Date</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for donation in donations %}
+                <tr>
+                    <th scope="row">{{ donation.id }}</th>
+                    <td>{{ donation.donorFirstName }}</td>
+                    <td>{{ donation.donorLastName }}</td>
+                    <td>{{ donation.collectionCenter }}</td>
+                    <td>{{ donation.date|date('d/m/Y H:i') }}</td>
+                    <td>
+                        <a href="{{ path('admin_donation_details', {id: donation.id}) }}" class="btn btn-primary">Voir</a>
+                        {# Ajoutez ici les autres actions que vous souhaitez #}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

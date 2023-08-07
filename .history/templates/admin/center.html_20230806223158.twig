@@ -1,0 +1,38 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block body %}
+    <div class='container-fluid'>
+        <h1>Liste des centres de collecte</h1>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Adresse</th>
+                    <th>Code Postal</th>
+                    <th>Ville</th>
+                    <th>Places disponibles</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for center in collectionCenters %}
+                    <tr>
+                        <td>{{ center.name }}</td>
+                        <td>{{ center.address }}</td>
+                        <td>{{ center.postalCode }}</td>
+                        <td>{{ center.city }}</td>
+                        <td>{{ center.availableSeats }}</td>
+                        <td>
+                            <a href="{{ path('admin_collectioncenter_edit', {'id': center.id}) }}" class="edit">
+                                <img src="{{ asset('images/back/edit.png') }}" alt="Edit" width="25" height="25" style="margin-right: 15px; margin-left:10px">
+                            </a>
+                            <a href="{{ path('admin_collectioncenter_delete', {'id': center.id}) }}" class="delete" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce centre de collecte ?')">
+                                <img src="{{ asset('images/back/delete.png') }}" alt="Delete" width="25" height="25">
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

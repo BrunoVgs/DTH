@@ -1,0 +1,173 @@
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* CSS pour la barre latérale */
+.sidebar {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #333;
+    padding-top: 20px;
+}
+
+.sidebar h2 {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+.sidebar .liens {
+    display: block;
+    color: #fff;
+    padding: 12px 20px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    padding-top: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+
+.sidebar .liens:hover {
+    background: linear-gradient(45deg, #ff0000, #b30000);
+    transform: scale(1.05);
+}
+
+.sidebar .liens.active {
+    background-color: #0056b3;
+    font-weight: bold;
+}
+
+.sidebar .liens:first-child {
+    padding-top: 25px;
+}
+
+.sidebar {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar .liens .logout {
+
+    color:gold
+}
+
+.panels {
+    margin-left: 250px;
+    padding: 20px;
+}
+
+
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid #e90b0b96;
+}
+
+.table th,
+.table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+.table th {
+    background: #b30000;
+    color: #fff;
+    text-align: left;
+}
+
+
+.table tbody tr:hover {
+    background-color: #f2f2f2;
+}
+
+
+.table th {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+.table td:first-child,
+.table td:last-child {
+    border-radius: 4px;
+}
+
+.btn {
+    background-color: #b90000;
+    color: #fff;
+    font-weight: 700;
+    padding: 6px 20px;
+    border: none;
+    border-radius: 30px;
+    transition: 0.4s ease;
+    border: 2px solid #333;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+}
+
+.btn:hover {
+    background-color: #800202;
+    transition: 0.4s ease;
+    color: white;
+    border: 2px solid #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /
+}
+
+
+.table {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.container-fluid {
+    width: 83.5%;
+    margin-left: 270px;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 30px;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 30px
+}
+
+form {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    border: 2px solid #800202;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input.form-control {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.sidebar .liens.logout {
+
+    color:chocolate;
+    font-weight: 1000;
+}
+
+.sidebar .liens.logout:hover {
+
+    color:white;
+    font-weight: 1000;
+}

@@ -1,0 +1,42 @@
+/* Style pour la section des donations */
+.donations-section {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Style pour la liste des donations */
+.donations-list {
+    list-style: none;
+    padding: 0;
+}
+
+.donations-list li {
+    padding: 5px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.donations-list li:last-child {
+    border-bottom: none;
+}
+
+/* Style pour le message "Aucune donation trouvée" */
+.no-donations-message {
+    font-style: italic;
+    color: #888;
+}
+
+/* Style pour les boutons */
+.profile-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.profile-button:hover {
+    background-color: #0056b3;
+}

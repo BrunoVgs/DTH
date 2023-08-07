@@ -1,0 +1,234 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}DonneTonHemoglobine!{% endblock %}
+
+{% block body %}
+    <!-- Jumbotron -->
+    <div class="card card-image img-fluid" style="background-image: url('images/blooddonate.jpg'); background-size: cover;">
+        <div class="text-white text-center rgba-stylish-strong py-5 px-4">
+            <div class="py-5">
+                <!-- Content -->
+                <h4 class="card-title h4 my-4 py-2">FAITES UN DON, SAUVEZ DES VIES !</h4>
+                <h1 class="mb-4 pb-2 px-md-5 mx-md-5">DONNEZ VOTRE SANG ET INSPIREZ<br>LES AUTRES A DONNÉS.</h1>
+                {% if app.user %}
+    {# Utilisateur connecté, rediriger vers la page des centres #}
+    <a class="btn btn-danger" href="{{ path('user_profile') }}">NOUS REJOINDRE <i class="fas fa-arrow-right"></i></a>
+{% else %}
+    {# Utilisateur non connecté, rediriger vers la page de connexion #}
+    <a class="btn btn-danger" href="{{ path('login') }}">NOUS REJOINDRE <i class="fas fa-arrow-right"></i></a>
+{% endif %}
+
+            </div>
+        </div>
+    </div>
+    <!-- Jumbotron -->
+
+    <div class="container-fluid" id="container">
+        <div class="card text-center" id="prompt">
+            <div class="card-body">
+                <h4 class="card-title"><strong>NOUS SOMMES LA POUR AIDER LES GENS</strong></h4>
+                <p class="card-text">Vous pouvez faire un don dans l'un de nos points de collecte. Nous disposons de plusieurs
+                    centres de donations
+                    et nous nous rendons dans d'autres villes à diverses occasions.</p>
+                {% if app.user %}
+    {# Utilisateur connecté, rediriger vers la page des centres #}
+    <a class="btn btn-danger" href="{{ path('center') }}">PRENDRE UN RENDEZ-VOUS <i class="fas fa-arrow-right"></i></a>
+{% else %}
+    {# Utilisateur non connecté, rediriger vers la page de connexion #}
+    <a class="btn btn-danger" href="{{ path('login') }}">PRENDRE UN RENDEZ-VOUS <i class="fas fa-arrow-right"></i></a>
+{% endif %}
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid" id="container2">
+
+        <!-- jumbotron -->
+        <div class="jumbotron jumbotron-fluid text-center">
+            <div class="container">
+                <h3 class="display-4">COMMENT ÇA SE PASSE ?</h3>
+                <hr class="dots">
+                <p class="lead">Le processus de donnation, de l'arrivée au centre jusqu'au départ.</p>
+            </div>
+        </div>
+        <!-- jumbotron -->
+        <div class="container-fluid mb-5">
+            <!-- Card deck -->
+            <div class="card-deck">
+
+                <!-- Card -->
+                <div class="card mb-3">
+                    <!--Card image-->
+                    <div class="view overlay">
+                        <img class="card-img-top" src="images/registration.jpg" alt="Card image cap">
+                        <a href="#!">
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
+                    </div>
+                    <!--Card content-->
+                    <div class="card-body">
+                        <!--Title-->
+                        <h4 class="card-title">ENREGISTREMENT</h4>
+                        <!--Text-->
+                        <p class="card-text">À votre arrivée, vous devrez remplir un formulaire d'inscription très simple qui contient toutes les informations de contact nécessaires pour devenir donateur.</p>
+                    </div>
+                </div>
+                <!-- Card -->
+
+                <!-- Card -->
+                <div class="card mb-3">
+                    <!--Card image-->
+                    <div class="view overlay">
+                        <img class="card-img-top" src="images/bloodcheck.jpg" alt="Card image cap">
+                        <a href="#!">
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
+                    </div>
+                    <!--Card content-->
+                    <div class="card-body">
+                        <!--Title-->
+                        <h4 class="card-title">TEST</h4>
+                        <!--Text-->
+                        <p class="card-text">Une goutte de sang va vous être prélevée au doigt pour être sûr que votre sang est compatible et ne présente aucun risque.</p>
+                    </div>
+                </div>
+                <!-- Card -->
+
+                <!-- Card -->
+                <div class="card mb-3">
+                    <!--Card image-->
+                    <div class="view overlay">
+                        <img class="card-img-top" src="images/donation.jpg" alt="Card image cap">
+                        <a href="#!">
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
+                    </div>
+                    <!--Card content-->
+                    <div class="card-body">
+                        <!--Title-->
+                        <h4 class="card-title">DONATION</h4>
+                        <!--Text-->
+                        <p class="card-text">Après avoir vérifié que tout est sans risque, vous allez être conduits vers un lit où vous pourrez vous installer. C'est ici que vous deviendrez un donateur !</p>
+                    </div>
+                </div>
+                <!-- Card -->
+
+                <!-- Card -->
+                <div class="card mb-3">
+                    <!--Card image-->
+                    <div class="view overlay">
+                        <img class="card-img-top" src="images/Refreshment.jpg" alt="Card image cap">
+                        <a href="#!">
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
+                    </div>
+                    <!--Card content-->
+                    <div class="card-body">
+                        <!--Title-->
+                        <h4 class="card-title">RAFRAÎCHISSEMENT</h4>
+                        <!--Text-->
+                        <p class="card-text">Vous aurez la possibilité de reprendre des forces après votre don.</p>
+                    </div>
+                </div>
+                <!-- Card -->
+            </div>
+            <!-- Card deck -->
+        </div>
+    </div>
+
+    <div class="container-fluid" id="container2">
+        <!-- Jumbotron -->
+        <div class="jumbotron text-center grey darken-3 white-text mx-2 mb-5">
+            <!-- Title -->
+            <h2 class="card-title h2">NOUS REJOINDRE ET SAUVEZ DES VIES</h2>
+            <div class="pt-2">
+                {% if app.user %}
+    {# Utilisateur connecté, rediriger vers la page des centres #}
+    <a class="btn btn-danger" href="{{ path('center') }}">DEVENIR VOLONTAIRE <i class="fas fa-arrow-right"></i></a>
+{% else %}
+    {# Utilisateur non connecté, rediriger vers la page de connexion #}
+    <a class="btn btn-danger" href="{{ path('register') }}">DEVENIR VOLONTAIRE <i class="fas fa-arrow-right"></i></a>
+{% endif %}
+            </div>
+            <hr class="my-4 rgba-white-light">
+        </div>
+        <!-- Jumbotron -->
+
+        <!-- FAQ Section -->
+        <div class="container-fluid" id="faq-section">
+            <h3 class="text-center mb-4">Foire aux questions (FAQ)</h3>
+            <div class="accordion custom-accordion" id="faq-accordion">
+                <!-- Question 1 -->
+                <div class="card">
+                    <div class="card-header" id="faq-heading-1">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#faq-collapse-1"
+                                aria-expanded="true" aria-controls="faq-collapse-1">
+                                Qu'est-ce que le don de sang et pourquoi est-ce important?
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="faq-collapse-1" class="collapse show" aria-labelledby="faq-heading-1" data-parent="#faq-accordion">
+                        <div class="card-body">
+                            Le don de sang est un acte volontaire et bénévole qui consiste à donner une partie de son sang pour aider les patients dans le besoin. C'est un geste vital qui sauve des vies et qui permet de traiter de nombreux problèmes de santé. Chaque don de sang peut être utilisé pour sauver jusqu'à trois vies. C'est pourquoi il est essentiel d'encourager et de promouvoir le don de sang.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="card">
+                    <div class="card-header" id="faq-heading-2">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                data-target="#faq-collapse-2" aria-expanded="false" aria-controls="faq-collapse-2">
+                                Qui peut donner son sang?
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="faq-collapse-2" class="collapse" aria-labelledby="faq-heading-2" data-parent="#faq-accordion">
+                        <div class="card-body">
+                            Pour donner son sang, il faut remplir certaines conditions : être en bonne santé, avoir entre 18 et 70 ans, peser au moins 50 kg, ne pas avoir eu de tatouage ou de piercing récemment, ne pas être enceinte ou allaitante, ne pas avoir eu de maladie infectieuse récente, etc. Avant chaque don, un entretien pré-don est réalisé pour vérifier l'éligibilité du donneur.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="card">
+                    <div class="card-header" id="faq-heading-3">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                data-target="#faq-collapse-3" aria-expanded="false" aria-controls="faq-collapse-3">
+                                Combien de sang est prélevé lors d'un don?
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="faq-collapse-3" class="collapse" aria-labelledby="faq-heading-3" data-parent="#faq-accordion">
+                        <div class="card-body">
+                            Lors d'un don de sang, environ 400 à 500 millilitres de sang sont prélevés. Ce volume représente moins de 10% du volume sanguin total d'un adulte moyen, et le corps se rétablit rapidement après le don. Le prélèvement de cette quantité de sang ne présente généralement aucun risque pour le donneur en bonne santé.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 4 -->
+                <div class="card">
+                    <div class="card-header" id="faq-heading-4">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                data-target="#faq-collapse-4" aria-expanded="false" aria-controls="faq-collapse-4">
+                                Puis-je donner mon sang si je suis sous traitement médical?
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="faq-collapse-4" class="collapse" aria-labelledby="faq-heading-4" data-parent="#faq-accordion">
+                        <div class="card-body">
+                            La possibilité de donner son sang tout en étant sous traitement médical dépend du type de traitement et de l'état de santé du donneur. Certains traitements peuvent rendre le sang inéligible au don, tandis que d'autres ne posent aucun problème. Avant chaque don, un entretien pré-don est réalisé pour évaluer l'éligibilité du donneur, en prenant en compte les traitements en cours.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- End FAQ Section -->
+    </div>
+{% endblock %}

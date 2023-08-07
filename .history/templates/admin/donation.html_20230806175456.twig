@@ -1,0 +1,45 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block body %}
+<div class='container-fluid'>
+    <h1>Rendez-vous passés</h1>
+    <div class="row">
+        <div class="col-md-12 text-right">
+            <button id="selectAllBtn" class="btn custom-btn-primary" style="margin: 5px 0px;">Tout sélectionner</button>
+            <button id="deselectAllBtn" class="btn custom-btn-warning" style="margin: 5px 0px;">Tout désélectionner</button>
+        </div>
+    </div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Heure</th>
+                <th>Utilisateur</th>
+                <th>Centre</th>
+                <th>Groupe sanguin</th>
+                <th>Prise de médication</th>
+                <th>Validation</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for appointment in appointments %}
+                <tr>
+                    <td>{{ appointment.appointmentDateTime|date('Y-m-d') }}</td>
+                    <td>{{ appointment.appointmentDateTime|date('H:i') }}</td>
+                    <td>{{ appointment.user.Firstname }} {{ appointment.user.Lastname }}</td>
+                    <td>{{ appointment.collectionCenter.name }}</td>
+                    <td>{{ appointment.bloodGroup }}</td>
+                    <td>{{ appointment.medication ? 'Oui' : 'Non' }}</td>
+                    <td>
+                        <input type="checkbox" class="appointment-checkbox" data-id="{{ appointment.id }}">
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <button id="validateBtn" class="btn custom-btn-success" style="display: none;">Valider la sélection</button>
+</div>
+
+
+<script src="{{ asset('js/donation.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Prise de Rendez-vous{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/appointment.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h2>Prise de Rendez-vous</h2>
+        {% if app.session.flashBag.has('success') %}
+            <div class="alert alert-success">
+                {{ app.session.flashBag.get('success')[0] }}
+            </div>
+        {% endif %}
+        <form method="post">
+            <div class="form-group">
+                <label for="appointmentDate">Choisissez la date du rendez-vous (entre 9h et 18h)</label>
+                <input type="date" id="appointmentDate" name="appointment[appointmentDate]" class="form-control" required min="{{ "now"|date('Y-m-d') }}" max="{{ "now"|date_modify('+1 year')|date('Y-m-d') }}">
+            </div>
+            <div class="form-group">
+                <label for="appointmentTime">Choisissez l'heure du rendez-vous (entre 9h et 18h)</label>
+                <input type="time" id="appointmentTime" name="appointment[appointmentTime]" class="form-control" required min="09:00" max="18:00">
+            </div>
+            <button type="submit" class="btn btn-primary">Prendre Rendez-vous</button>
+        </form>
+    </div>
+
+    <script>
+        // Désactiver les heures en dehors de la plage 9h à 18h
+        const appointmentTimeInput = document.getElementById("appointmentTime");
+        appointmentTimeInput.addEventListener("focus", () => {
+            appointmentTimeInput.setAttribute("step", 600); // 600 seconds = 10 minutes
+            appointmentTimeInput.setAttribute("value", "09:00"); // Mettre l'heure de départ par défaut
+        });
+        appointmentTimeInput.addEventListener("input", () => {
+            const selectedTime = new Date(`2000-01-01T${appointmentTimeInput.value}:00`);
+            if (selectedTime.getHours() < 9) {
+                appointmentTimeInput.value = "09:00";
+            } else if (selectedTime.getHours() >= 18) {
+                appointmentTimeInput.value = "18:00";
+            }
+        });
+    </script>
+{% endblock %}

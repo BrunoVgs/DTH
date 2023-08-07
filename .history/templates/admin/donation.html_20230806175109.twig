@@ -1,0 +1,76 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block body %}
+<div class='container-fluid'>
+    <h1>Rendez-vous passés</h1>
+    <div class="row">
+    <button id="validateBtn" class="btn custom-btn-success" style="display: none; margin-top: 10px;">Valider la sélection</button>
+        <div class="col-md-12 text-right">
+            <button id="selectAllBtn" class="btn custom-btn-primary" style="margin-bottom: 10px;">Tout sélectionner</button>
+            <button id="deselectAllBtn" class="btn custom-btn-warning" style="margin-bottom: 10px;">Tout désélectionner</button>
+        </div>
+    </div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Heure</th>
+                <th>Utilisateur</th>
+                <th>Centre</th>
+                <th>Groupe sanguin</th>
+                <th>Prise de médication</th>
+                <th>Validation</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for appointment in appointments %}
+                <tr>
+                    <td>{{ appointment.appointmentDateTime|date('Y-m-d') }}</td>
+                    <td>{{ appointment.appointmentDateTime|date('H:i') }}</td>
+                    <td>{{ appointment.user.Firstname }} {{ appointment.user.Lastname }}</td>
+                    <td>{{ appointment.collectionCenter.name }}</td>
+                    <td>{{ appointment.bloodGroup }}</td>
+                    <td>{{ appointment.medication ? 'Oui' : 'Non' }}</td>
+                    <td>
+                        <input type="checkbox" class="appointment-checkbox" data-id="{{ appointment.id }}">
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<script>
+    const validateBtn = document.getElementById('validateBtn');
+    const checkboxes = document.querySelectorAll('.appointment-checkbox');
+
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', () => {
+            const checkedCheckboxes = document.querySelectorAll('.appointment-checkbox:checked');
+            validateBtn.style.display = checkedCheckboxes.length > 0 ? 'block' : 'none';
+        });
+    });
+
+    validateBtn.addEventListener('click', () => {
+        const checkedCheckboxes = document.querySelectorAll('.appointment-checkbox:checked');
+        const appointmentIds = Array.from(checkedCheckboxes).map(checkbox => checkbox.dataset.id);
+    });
+
+    const selectAllBtn = document.getElementById('selectAllBtn');
+    const deselectAllBtn = document.getElementById('deselectAllBtn');
+
+    selectAllBtn.addEventListener('click', () => {
+        checkboxes.forEach(checkbox => {
+            checkbox.checked = true;
+        });
+        validateBtn.style.display = 'block';
+    });
+
+    deselectAllBtn.addEventListener('click', () => {
+        checkboxes.forEach(checkbox => {
+            checkbox.checked = false;
+        });
+        validateBtn.style.display = 'none';
+    });
+</script>
+{% endblock %}

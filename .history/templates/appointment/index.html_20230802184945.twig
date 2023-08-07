@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Prise de Rendez-vous{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/appointment.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h2>Prise de Rendez-vous</h2>
+        {% if app.session.flashBag.has('success') %}
+            <div class="alert alert-success">
+                {{ app.session.flashBag.get('success')[0] }}
+            </div>
+        {% endif %}
+        <form method="post">
+            <div class="form-group">
+                <label for="appointmentDate">Choisissez la date du rendez-vous (entre 9h et 18h)</label>
+                <input type="date" id="appointmentDate" name="appointment[appointmentDate]" class="form-control" required min="{{ "now"|date('Y-m-d') }}" max="{{ "now"|date_modify('+1 year')|date('Y-m-d') }}">
+            </div>
+            <div class="form-group">
+                <label for="appointmentTime">Choisissez l'heure du rendez-vous (entre 9h et 18h)</label>
+                <input type="time" id="appointmentTime" name="appointment[appointmentTime]" class="form-control" min="09:00" max="18:00">
+            </div>
+            <button type="submit" class="btn btn-primary">Prendre Rendez-vous</button>
+        </form>
+    </div>
+{% endblock %}

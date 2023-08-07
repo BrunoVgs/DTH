@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Prise de Rendez-vous{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/appointment.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h2>Prise de Rendez-vous</h2>
+        {% if app.session.flashBag.has('success') %}
+            <div class="alert alert-success">
+                {{ app.session.flashBag.get('success')[0] }}
+            </div>
+        {% endif %}
+        <form method="post">
+            <div class="form-group">
+                <label for="appointmentDate">Choisissez la date du rendez-vous (entre 9h et 18h)</label>
+                <input type="date" id="appointmentDate" name="appointment[appointmentDate]" class="form-control" required min="{{ "now"|date('Y-m-d') }}" max="{{ "now"|date_modify('+1 year')|date('Y-m-d') }}">
+            </div>
+            <div class="form-group">
+                <label for="appointmentTime">Choisissez l'heure du rendez-vous (entre 9h et 18h)</label>
+                <div class="input-group">
+                    <input type="time" id="appointmentTime" name="appointment[appointmentTime]" class="form-control" required min="09:00" max="18:00">
+                    <span class="input-group-text">
+                        <i class="fas fa-times" id="incorrectIcon" style="display: none; color: red;"></i>
+                        <i class="fas fa-check" id="correctIcon" style="display: none; color: green;"></i>
+                    </span>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Prendre Rendez-vous</button>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.6/dist/flatpickr.min.js"></script>
+    <script>
+        const timeInput = document.getElementById("appointmentTime");
+        const incorrectIcon = document.getElementById("incorrectIcon");
+        const correctIcon = document.getElementById("correctIcon");
+
+        flatpickr(timeInput, {
+            enableTime: true,
+            noCalendar: true,
+            dateFormat: "H:i",
+            time_24hr: true,
+            minTime: "09:00",
+            maxTime: "18:00",
+            defaultHour: 9,
+            onClose: function(selectedDates, dateStr, instance) {
+                const selectedTime = new Date(`2000-01-01T${dateStr}:00`);
+                if (selectedTime.getHours() < 9 || selectedTime.getHours() >= 18) {
+                    incorrectIcon.style.display = "inline";
+                    correctIcon.style.display = "none";
+                } else {
+                    incorrectIcon.style.display = "none";
+                    correctIcon.style.display = "inline";
+                }
+            },
+            onOpen: function(selectedDates, dateStr, instance) {
+                incorrectIcon.style.display = "none";
+                correctIcon.style.display = "none";
+            }
+        });
+    </script>
+{% endblock %}

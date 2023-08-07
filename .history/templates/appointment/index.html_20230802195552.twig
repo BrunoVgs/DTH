@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Prise de Rendez-vous{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/appointment.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.6/dist/flatpickr.min.css">
+{% endblock %}
+
+{% block body %}
+<div class="block-container">
+    <div class="image-container">
+    <image class="img" src="{{ asset('images/01.png')}}">
+    </div>
+    <div class="form-container">
+        <h2>Prise de Rendez-vous</h2>
+        {% if app.session.flashBag.has('success') %}
+            <div class="alert alert-success">
+                {{ app.session.flashBag.get('success')[0] }}
+            </div>
+        {% endif %}
+        <form method="post">
+            <div class="form-group">
+                <label for="appointmentDateTime">Choisissez la date et l'heure du rendez-vous (entre 9h et 18h)</label>
+                <input type="text" id="appointmentDateTime" name="appointment[appointmentDateTime]" class="form-control" required>
+            </div>
+            <button type="submit" class="custom-btn">Prendre Rendez-vous</button>
+        </form>
+    </div>
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.6/dist/flatpickr.min.js"></script>
+    <script>
+        flatpickr("#appointmentDateTime", {
+            enableTime: true,
+            dateFormat: "Y-m-d H:i",
+            minDate: "today",
+            maxDate: new Date().fp_incr(365), // 365 days from now
+            minTime: "09:00",
+            maxTime: "18:00",
+            minuteIncrement: 10,
+            defaultHour: 9,
+            time_24hr: true,
+            onClose: function(selectedDates, dateStr, instance) {
+                const selectedTime = new Date(dateStr);
+                if (selectedTime.getHours() < 9 || selectedTime.getHours() >= 18) {
+                    instance.setDate(null, false); // Clear the selection if time is invalid
+                }
+            }
+        });
+    </script>
+{% endblock %}

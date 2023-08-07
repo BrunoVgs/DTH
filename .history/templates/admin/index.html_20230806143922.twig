@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backoffice avec Bootstrap</title>
+    <!-- Inclure les fichiers CSS de Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Inclure le fichier CSS personnalisé -->
+    <link rel="stylesheet" href="{{ asset('styles.css') }}">
+</head>
+<body>
+    <!-- Barre latérale -->
+    <div class="sidebar">
+        <h2>Menu</h2>
+        <a href="#">Accueil</a>
+        <a href="#">Éléments</a>
+        <a href="#">Paramètres</a>
+    </div>
+
+    <!-- Contenu principal -->
+    <div class="main-content">
+        <h1>Backoffice</h1>
+
+        <!-- Tableau récapitulatif -->
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Description</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Élément 1</td>
+                    <td>Ceci est l'élément 1</td>
+                    <td>
+                        <button class="btn btn-danger">Supprimer</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Élément 2</td>
+                    <td>Ceci est l'élément 2</td>
+                    <td>
+                        <button class="btn btn-danger">Supprimer</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Formulaire pour ajouter un nouvel élément -->
+        <h2>Ajouter un nouvel élément</h2>
+        <form>
+            <div class="form-group">
+                <label for="nom">Nom</label>
+                <input type="text" class="form-control" id="nom" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea class="form-control" id="description" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Ajouter</button>
+        </form>
+    </div>
+
+    <!-- Inclure les fichiers JavaScript de Bootstrap (jQuery requis) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

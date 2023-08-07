@@ -1,0 +1,83 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}S'enregistrer{% endblock %}
+
+{% block body %}
+    <head>
+        {% block stylesheets %}
+            <!-- Icons font CSS-->
+            <link href="{{ asset('css/form.css') }}" rel="stylesheet" media="all">
+        {% endblock %}
+    </head>
+
+    <body>
+        <div class="page-wrapper bg-red p-t-180 p-b-100 font-robo">
+            <div class="wrapper wrapper--w960">
+                <div class="card card-2">
+                    <div class="card-heading"></div>
+                    <div class="card-body">
+                        <h2 class="title">Enregistrement</h2>
+                        <form method="POST" action="{{ path('register_post') }}">
+                            <div class="input-group">
+                                <input class="input--style-2" type="text" placeholder="Nom" name="first_name">
+                            </div>
+                            <div class="input-group">
+                                <input class="input--style-2" type="text" placeholder="Prénom" name="last_name">
+                            </div>
+                            <div class="input-group">
+                                <input class="input--style-2" type="text" placeholder="Email" name="email">
+                            </div>
+                            <div class="input-group">
+                                <input class="input--style-2" type="text" placeholder="Mot de passe" name="password">
+                            </div>
+                            <div class="input-group">
+                                <input class="input--style-2" type="text" placeholder="Age" name="age">
+                            </div>
+                            <div class="input-group">
+                                <input class="input--style-2" type="text" placeholder="Poids (en kg)" name="weight">
+                            </div>
+                            <div class="input-group">
+                                <input class="input--style-2" type="text" placeholder="Taille (en cm)" name="height">
+                            </div>
+                            <div class="input-group">
+                                <input class="input--style-2" type="text" placeholder="Numéro de téléphone" name="phone_number">
+                            </div>
+                            <div class="input-group">
+                                <input class="input--style-2" type="text" placeholder="Adresse" name="adress">
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <input type="text" name="postal_code" class="input--style-2" placeholder="Code Postal" value="">
+                                    <hr class="form-divider">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <input type="text" name="city" class="input--style-2" value="" placeholder="Commune">
+                                    <hr class="form-divider">
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <input class="input--style-2 js-datepicker" type="text" placeholder="Date de naissance" name="birthdate">
+                                <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                            </div>
+                            <div class="input-group">
+                                <div class="rs-select2 js-select-simple select--no-search">
+                                    <select name="sexe">
+                                        <option disabled="disabled" selected="selected">Sexe</option>
+                                        <option>Homme</option>
+                                        <option>Femme</option>
+                                        <option>Autre</option>
+                                    </select>
+                                    <div class="select-dropdown"></div>
+                                </div>
+                            </div>
+                            <div class="row row-space"></div>
+                         
+                                <button class="btn btn--radius btn--green" type="submit">S'ENREGISTRER</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+{% endblock %}

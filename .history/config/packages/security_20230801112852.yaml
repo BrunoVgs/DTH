@@ -1,0 +1,48 @@
+security:
+    enable_authenticator_manager: true
+    password_hashers:
+        Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
+        App\Entity\User:
+            algorithm: auto
+            cost: 10
+    providers:
+        # Update this provider to use your actual user provider service (e.g., UserProviderInterface implementation)
+        main_user_provider:
+            entity:
+                class: App\Entity\User
+                property: email
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        login:
+            pattern: ^/login
+            anonymous: true
+            provider: main_user_provider
+            form_login:
+                login_path: login
+                check_path: login_post
+                csrf_token_generator: security.csrf.token_manager
+                default_target_path:
+            enable_csrf: true
+
+
+    # Easy way to control access for large sections of your site
+    # Note: Only the *first* access control that matches will be used
+    access_control:
+        - { path: ^/volunteer, roles: ROLE_VOLUNTEER }
+        - { path: ^/donor, roles: ROLE_DONOR }
+        - { path: ^/admin, roles: ROLE_ADMIN }
+
+when@test:
+    security:
+        password_hashers:
+            # By default, password hashers are resource intensive and take time. This is
+            # important to generate secure password hashes. In tests however, secure hashes
+            # are not important, waste resources and increase test times. The following
+            # reduces the work factor to the lowest possible values.
+            Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface:
+                algorithm: auto
+                cost: 4 
+                time_cost: 3 
+                memory_cost: 10 

@@ -1,0 +1,62 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block body %}
+    <div class='panels'>
+        <!-- Les autres cartes vont ici (Messagerie, Campagnes en cours) -->
+
+        <div class='container-fluid'>
+            <!-- Panneau pour la liste des derniers dons -->
+            <div id="section-derniers-dons" class="panel panel-success">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Liste des derniers dons</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Centre de collecte</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for donation in donations %}
+                                        <tr>
+                                            <td>{{ donation.date.format('Y-m-d H:i:s') }}</td>
+                                            <td>{{ donation.collectionCenter}}</td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                            <a href="#section-derniers-dons" class="btn btn-primary">Voir tout</a>
+                        </div>
+                        <!-- Ajouter une nouvelle colonne pour le deuxième tableau -->
+                        <div class="col-md-6">
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Nom</th>
+                                        <th>Email</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for user in users %}
+                                        <tr>
+                                            <td>{{ user.firstname }} {{ user.lastname }}</td>
+                                            <td>{{ user.email }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                            <a href="#section-utilisateurs" class="btn btn-primary">Voir tout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rest of the content goes here (if any) -->
+
+    </div>
+{% endblock %}

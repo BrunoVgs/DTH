@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes rendez-vous{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/form.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.6/dist/flatpickr.min.css">
+{% endblock %}
+
+{% block body %}   
+
+    <div class="container mt-5">
+        <h2>Liste des Rendez-vous</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Date et Heure</th>
+                    <th scope="col">Groupe Sanguin</th>
+                    <th scope="col">Médication</th>
+                    <th scope="col">Consentement</th>
+                    <th scope="col">Centre de Collecte</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for appointment in appointments %}
+                    <tr>
+                        <td>{{ appointment.appointmentDateTime|date('d/m/Y H:i') }}</td>
+                        <td>{{ appointment.bloodGroup }}</td>
+                        <td>{{ appointment.medication ? 'Oui' : 'Non' }}</td>
+                        <td>{{ appointment.consent ? 'Oui' : 'Non' }}</td>
+                        <td>{{ appointment.collectionCenter.name }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}
+
+

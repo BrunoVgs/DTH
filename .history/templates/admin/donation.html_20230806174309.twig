@@ -1,0 +1,55 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block body %}
+<div class='container-fluid'>
+    <h1>Rendez-vous passés</h1>
+    <button id="validateBtn" class="btn btn-success" style="display: none;">Valider la sélection</button>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Heure</th>
+                <th>Utilisateur</th>
+                <th>Centre</th>
+                <th>Groupe sanguin</th>
+                <th>Prise de médication</th>
+                <th>Validation</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for appointment in appointments %}
+                <tr>
+                    <td>{{ appointment.appointmentDateTime|date('Y-m-d') }}</td>
+                    <td>{{ appointment.appointmentDateTime|date('H:i') }}</td>
+                    <td>{{ appointment.user.Firstname }} {{ appointment.user.Lastname }}</td>
+                    <td>{{ appointment.collectionCenter.name }}</td>
+                    <td>{{ appointment.bloodGroup }}</td>
+                    <td>{{ appointment.medication ? 'Oui' : 'Non' }}</td>
+                    <td>
+                        <input type="checkbox" class="appointment-checkbox" data-id="{{ appointment.id }}">
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<script>
+    const validateBtn = document.getElementById('validateBtn');
+    const checkboxes = document.querySelectorAll('.appointment-checkbox');
+
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', () => {
+            const checkedCheckboxes = document.querySelectorAll('.appointment-checkbox:checked');
+            validateBtn.style.display = checkedCheckboxes.length > 0 ? 'block' : 'none';
+        });
+    });
+
+    validateBtn.addEventListener('click', () => {
+        const checkedCheckboxes = document.querySelectorAll('.appointment-checkbox:checked');
+        const appointmentIds = Array.from(checkedCheckboxes).map(checkbox => checkbox.dataset.id);
+        // Ici, vous pouvez envoyer les IDs des rendez-vous sélectionnés au serveur pour validation
+        // par exemple, en utilisant une requête AJAX ou en soumettant un formulaire avec les IDs en tant que valeurs
+    });
+</script>
+{% endblock %}

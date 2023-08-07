@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Rendez-vous{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <h2 class="mb-4">Liste des Rendez-vous</h2>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Heure</th>
+                    <th>Groupe sanguin</th>
+                    <th>Médication</th>
+                    <th>Centre</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for appointment in appointments %}
+                    <tr>
+                        <td>{{ appointment.appointmentDateTime|date('d/m/Y') }}</td>
+                        <td>{{ appointment.appointmentDateTime|date('H:i') }}</td>
+                        <td>{{ appointment.bloodGroup }}</td>
+                        <td>{{ appointment.medication ? 'Oui' : 'Non' }}</td>
+                        <td>{{ appointment.collectionCenter.name }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{{ path('appointment') }}" class="btn btn-danger">Prendre un nouveau rendez-vous</a>
+    </div>
+{% endblock %}

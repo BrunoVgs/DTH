@@ -1,0 +1,59 @@
+    <!--Navbar -->
+
+    <nav class="mb-1 navbar navbar-expand-lg navbar-dark danger-color">
+        <a class="navbar-brand" href="#">DonneTonHémoglobine</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
+            aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ path('home') }}">Accueil
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('campain_home') }}">Campagnes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('center') }}">Nos centres</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('mission') }}">Notre mission</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('contact') }}">Nous contactez</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('about') }}">A propos</a>
+                </li>
+
+            </ul>
+            <ul class="navbar-nav ml-auto nav-flex-icons">
+            {% dump(app.token) %}
+
+               {% if app.token is defined %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-user"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-default"
+                        aria-labelledby="navbarDropdownMenuLink-333">
+                        <a class="dropdown-item" href="#">Profile</a>
+                        <a class="dropdown-item" href="#">Mes Rendez-vous</a>
+                        <a class="dropdown-item" href="{{ path('logout') }}">Déconnexion</a>
+                    </div>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('register') }}">S'enregistrer</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('login') }}">Connexion</a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>

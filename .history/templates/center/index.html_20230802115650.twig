@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CenterController!{% endblock %}
+
+{% block body %}
+    {% block stylesheets %}
+    <!-- Icons font CSS-->
+    <link href="{{ asset('css/center.css') }}" rel="stylesheet" media="all">
+    {% endblock %}
+
+      <div class="card-location__actions">
+      <a class="btn btn-primary" href="https://dondesang.efs.sante.fr/trouver-une-collecte/19474/sang/02-08-2023" >Prendre rendez-vous</a>
+    </div>
+        
+</div>
+
+                  
+<div class="card-location  marker-id-327003" marker-id="327003" marker-rdv-id="19670" data-lat="43.92027283" data-lon="4.80508137">
+  <div class="flex">
+    <div class="card-location__img">
+      <picture>
+                  <img loading="lazy" width="100" height="100" src="https://mon-rdv-dondesang.efs.sante.fr/collecte/image/default" alt="https://mon-rdv-dondesang.efs.sante.fr/collecte/image/default" onerror="this.style.display='none'">
+              </picture>
+    </div>
+    <div class="card-location__detail flex">
+      <div>
+        <div class="card-location__header flex">
+                                    <h4 class="card-location__title">AVIGNON <span>(Avignon Maison du don - 84084)</span></h4>
+                                <div class="card-location__header__right flex">
+            <span class="card-location__distance"></span>
+                                              </div>
+        </div>
+        <div class="card-location__type-wrapper">
+          <div class="card-location__location-type">
+                          <span class="icon-marker icon-marker--sitefx"></span>
+              Maison du Don
+                      </div>
+          <ul class="card-location__donation-type flex">
+                          <li><span class="icon-drop icon-drop--sang"></span> Sang</li>
+                                      <li><span class="icon-drop icon-drop--plasma"></span> Plasma</li>
+                                      <li><span class="icon-drop icon-drop--plaquettes"></span> Plaquettes</li>
+                      </ul>
+        </div>
+      </div>
+      <div class="card-location__info flex">
+                          <div><span class="icon-check-round"></span> <span class="places-count"></span> places disponibles</div>
+                      </div>
+    </div>
+  </div>
+
+      <div class="card-location__actions">
+      <a class="btn btn-primary" href="https://dondesang.efs.sante.fr/trouver-une-collecte/19670/sang/02-08-2023" >Prendre rendez-vous</a>
+    </div>
+        
+{% endblock %}

@@ -1,0 +1,77 @@
+<?php 
+namespace App\Controller;
+
+use App\Entity\User;
+use App\Repository\AppointmentRepository;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+use App\Repository\CollectionCenterRepository;
+use App\Repository\UserRepository;
+use App\Repository\DonationRepository;
+
+class AdminController extends AbstractController
+{
+    #[Route('/admin/', name: 'admin')]
+    public function index(
+        UserRepository $userRepository, 
+        DonationRepository $donationRepository,
+        ): Response
+    {
+        $users = $userRepository->findAll();
+        $donations = $donationRepository->findAll();
+
+        return $this->render('admin/index.html.twig', [
+            'controller_name' => 'AdminController',
+            'users' => $users,
+            'donations' => $donations,
+        ]);
+    }
+
+    #[Route('/admin/user', name: 'admin_user')]
+    public function user(UserRepository $userRepository): Response
+    {
+        $users = $userRepository->findAll();
+        return $this->render('admin/user.html.twig', [
+            'controller_name' => 'AdminController',
+            'users' => $users,
+        ]);
+        
+    }
+
+    #[Route('/admin/user/edit/{id}', name: 'admin_user_edit', methods: ['GET', 'POST'], requirements: ['id' => '\d+'])]
+    public function edit(User $user): Response
+    {
+        // Vous avez maintenant accès à l'objet User correspondant à l'identifiant $id
+        // Vous pouvez effectuer les opérations d'édition ou simplement retourner les données pour l'affichage
+
+        // Remplacez le code ci-dessous par le code de l'édition de l'utilisateur
+        return $this->render('admin/user.html.twig', [
+            'controller_name' => 'AdminController',
+            'users' => $users,
+        ]);
+    }
+
+    #[Route('/admin/donation', name: 'admin_donation')]
+    public function donation(
+        UserRepository $userRepository, 
+        DonationRepository $donationRepository,
+        CollectionCenterRepository $centerRepository,
+        AppointmentRepository $appointmentRepository
+        ): Response
+    {
+        $users = $userRepository->findAll();
+        $donations = $donationRepository->findAll();
+        $centers = $centerRepository->findAll();
+        $appointments = $appointmentRepository->findPastAppointments();
+
+        return $this->render('admin/donation.html.twig', [
+            'controller_name' => 'AdminController',
+            'users' => $users,
+            'users' => $users,
+            'donations' => $donations,
+            'centers' => $centers,
+            'appointments' => $appointments
+        ]);
+    }
+}

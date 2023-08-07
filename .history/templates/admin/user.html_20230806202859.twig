@@ -1,0 +1,48 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block body %}
+<div class='container-fluid'>
+    <h1>Liste des utilisateurs</h1>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>Email</th>
+                <th>Age</th>
+                <th>Poids</th>
+                <th>Taille</th>
+                <th>Adresse</th>
+                <th>Code Postal</th>
+                <th>Ville</th>
+                <th>Tel</th>
+                <th>Role</th>
+                <th>Editer</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.firstname }}</td>
+                    <td>{{ user.lastname }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.age }}</td>
+                    <td>{{ user.weight }} kg</td>
+                    <td>{{ user.height }} cm</td>
+                    <td>{{ user.adress }}</td>
+                    <td>{{ user.postalcode }}</td>
+                    <td>{{ user.city }}</td>
+                    <td>{{ user.phonenumber }}</td>
+                    <td>{{ user.roles|join(', ') }}</td> {# Convert array to string #}
+                    <td>
+                        <!-- Edit link with logo -->
+<a href="#" class="edit" style="background-image: url('{{ asset('images/back/pencil.png') }}'); background-size: 20px 20px; background-repeat: no-repeat;">
+cc
+</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

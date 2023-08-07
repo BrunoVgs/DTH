@@ -1,0 +1,41 @@
+{# templates/centers.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CenterController!{% endblock %}
+
+{% block body %}
+    {% block stylesheets %}
+    <link href="{{ asset('css/center.css') }}" rel="stylesheet" media="all">
+    {% endblock %}
+
+    <div class="container">
+        <div class="row">
+            {% for center in centers %}
+                <div class="col-md-6 mb-4">
+                    <div class="card custom-card">
+                        <div class="card-banner">
+                            <img src="{{ asset('images/cities/') ~ center.image }}" class="card-img-top w-100" alt="Image">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ center.name }}</h5>
+                            <div class="d-flex justify-content-between">
+                                <p class="card-text text-left">{{ center.city }}</p>
+                                <p class="card-text text-right">{{ center.address }}</p>
+                            </div>
+                            <p class="card-text">Places disponibles : {{ center.availableSeats }}</p>
+                            <form action="{{ path('appointment') }}" method="post">
+                                <input type="hidden" name="center_name" value="{{ center.name }}">
+                                <input type="hidden" name="center_address" value="{{ center.address }}">
+                                <input type="hidden" name="center_city" value="{{ center.city }}">
+                                <input type="hidden" name="center_postal_code" value="{{ center.postalcode }}">
+                                <input type="hidden" name="center_postal_code" value="{{ center.id }}">
+                                <button type="submit" class="btn btn-danger">Prendre Rendez-vous</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

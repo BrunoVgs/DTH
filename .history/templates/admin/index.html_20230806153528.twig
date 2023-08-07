@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backoffice avec Bootstrap</title>
+    <!-- Inclure les fichiers CSS de Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Inclure le fichier CSS personnalisé -->
+    <link rel="stylesheet" href="{{ asset('styles.css') }}">
+</head>
+<body>
+    <!-- Barre latérale -->
+    <div class="sidebar">
+        <h2>Menu</h2>
+        <a href="#section-statistiques">Statistiques des dons</a>
+        <a href="#section-derniers-dons">Derniers dons</a>
+        <a href="#section-messages">Messages importants</a>
+        <a href="#section-campagnes">Gestion des campagnes</a>
+        <a href="#section-utilisateurs">Gestion des utilisateurs</a>
+        <a href="#section-notifications">Notifications</a>
+        <a href="#section-configuration">Configuration du site</a>
+    </div>
+
+    <!-- Contenu principal -->
+    <div class="main-content">
+        <h1>Backoffice</h1>
+
+        <!-- Panneaux sur la page d'accueil -->
+
+        <!-- Statistiques des dons -->
+        <div id="section-statistiques" class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Statistiques des dons</h3>
+            </div>
+            <div class="panel-body">
+                <!-- Ajoutez ici des graphiques ou des tableaux pour afficher les statistiques des dons -->
+            </div>
+        </div>
+
+        <!-- Liste des derniers dons -->
+        <div id="section-derniers-dons" class="panel panel-success">
+            <div class="panel-heading">
+                <h3 class="panel-title">Liste des derniers dons</h3>
+            </div>
+            <div class="panel-body">
+                <ul>
+                    <li>Don du 01/08/2023 - Groupe sanguin A+</li>
+                    <li>Don du 30/07/2023 - Groupe sanguin O-</li>
+                    <!-- Ajoutez ici les autres dons récents -->
+                </ul>
+            </div>
+        </div>
+
+        <!-- Messages importants -->
+        <div id="section-messages" class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">Messages importants</h3>
+            </div>
+            <div class="panel-body">
+                <div class="alert alert-info">
+                    <strong>Rappel :</strong> La campagne de don de sang aura lieu le 15 août 2023. Soyez prêts !
+                </div>
+            </div>
+        </div>
+
+        <!-- Gestion des campagnes -->
+        <div id="section-campagnes" class="panel panel-warning">
+            <div class="panel-heading">
+                <h3 class="panel-title">Gestion des campagnes</h3>
+            </div>
+            <div class="panel-body">
+                <!-- Ajoutez ici une interface pour gérer les campagnes de don de sang -->
+            </div>
+        </div>
+
+        <!-- Gestion des utilisateurs -->
+        <div id="section-utilisateurs" class="panel panel-danger">
+            <div class="panel-heading">
+                <h3 class="panel-title">Gestion des utilisateurs</h3>
+            </div>
+            <div class="panel-body">
+                <!-- Ajoutez ici une interface pour gérer les utilisateurs du site -->
+            </div>
+        </div>
+
+        <!-- Notifications -->
+        <div id="section-notifications" class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">Notifications</h3>
+            </div>
+            <div class="panel-body">
+                <!-- Ajoutez ici un système de notifications pour informer les utilisateurs -->
+            </div>
+        </div>
+
+        <!-- Configuration du site -->
+        <div id="section-configuration" class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Configuration du site</h3>
+            </div>
+            <div class="panel-body">
+                <!-- Ajoutez ici les paramètres de configuration pour le site -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Inclure les fichiers JavaScript de Bootstrap (jQuery requis) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CenterController!{% endblock %}
+
+{% block body %}
+    {% block stylesheets %}
+    <!-- Icons font CSS-->
+    <link href="{{ asset('css/center.css') }}" rel="stylesheet" media="all">
+    {% endblock %}
+
+    <div class="container">
+        <div class="row row-cols-md-2">
+            {% for i in 1..10 %}
+                <div class="col mb-4">
+                    <div class="card custom-card">
+                        <img src="https://via.placeholder.com/100x300" class="card-img-top" alt="Image Placeholder">
+
+                        <div class="card-body">
+                            <h5 class="card-title">Nom du Centre de Don</h5>
+                            <p class="card-text">Adresse du Centre de Don</p>
+                            <p class="card-text">Places disponibles : 10</p>
+                            <a href="#" class="btn btn-danger">Prendre Rendez-vous</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

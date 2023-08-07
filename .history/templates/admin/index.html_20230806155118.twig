@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backoffice avec Bootstrap</title>
+    <!-- Inclure les fichiers CSS de Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Inclure le fichier CSS personnalisé -->
+    <link rel="stylesheet" href="{{ asset('css/backoffice.css') }}">
+</head>
+<body>
+    <!-- Barre latérale -->
+    <div class="sidebar">
+        <h2>Menu</h2>
+        <a href="#section-statistiques">Statistiques des dons</a>
+        <a href="#section-derniers-dons">Derniers dons</a>
+        <a href="#section-messages">Messages importants</a>
+        <a href="#section-campagnes">Gestion des campagnes</a>
+        <a href="#section-utilisateurs">Gestion des utilisateurs</a>
+        <a href="#section-notifications">Notifications</a>
+        <a href="#section-configuration">Configuration du site</a>
+    </div>
+
+    <!-- Contenu principal -->
+    <div class="main-content">
+        <h1>Backoffice</h1>
+
+        <!-- Ajouter les rectangles sous le titre "Messagerie", "Donations", "Utilisateurs enregistrés" et "Campagnes en cours" -->
+        <div class="row">
+            <div class="col-md-3 mb-4">
+                <div class="card bg-primary text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">Messagerie</h5>
+                        <p class="card-text">Contenu de la messagerie ici.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 mb-4">
+                <div class="card bg-success text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">Donations</h5>
+                        <p class="card-text">Contenu des donations ici.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 mb-4">
+                <div class="card bg-info text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">Utilisateurs enregistrés</h5>
+                        <p class="card-text">Contenu des utilisateurs enregistrés ici.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 mb-4">
+                <div class="card bg-warning text-dark">
+                    <div class="card-body">
+                        <h5 class="card-title">Campagnes en cours</h5>
+                        <p class="card-text">Contenu des campagnes en cours ici.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panneau pour la liste des derniers dons -->
+        <div id="section-derniers-dons" class="panel panel-success">
+            <div class="panel-heading">
+                <h3 class="panel-title">Liste des derniers dons</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Groupe sanguin</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>01/08/2023</td>
+                                    <td>A+</td>
+                                </tr>
+                                <tr>
+                                    <td>30/07/2023</td>
+                                    <td>O-</td>
+                                </tr>
+                                <!-- Ajoutez ici les autres dons récents -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <a href="#section-derniers-dons" class="btn btn-primary">Voir tout</a>
+            </div>
+        </div>
+
+        <!-- Panneau pour la liste des utilisateurs -->
+        <div id="section-utilisateurs" class="panel panel-danger">
+            <div class="panel-heading">
+                <h3 class="panel-title">Liste des utilisateurs</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Nom</th>
+                                    <th>Email</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Utilisateur 1</td>
+                                    <td>user1@example.com</td>
+                                </tr>
+                                <tr>
+                                    <td>Utilisateur 2</td>
+                                    <td>user2@example.com</td>
+                                </tr>
+                                <!-- Ajoutez ici les autres utilisateurs -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <a href="#section-utilisateurs" class="btn btn-primary">Voir tout</a>
+            </div>
+        </div>
+
+        <!-- Tableau récapitulatif -->
+        <!-- ... (votre code pour le tableau récapitulatif) ... -->
+
+        <!-- Formulaire pour ajouter un nouvel élément -->
+        <!-- ... (votre code pour le formulaire) ... -->
+
+    </div>
+
+    <!-- Inclure les fichiers JavaScript de Bootstrap (jQuery requis) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

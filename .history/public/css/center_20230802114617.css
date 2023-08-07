@@ -1,0 +1,35 @@
+
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    object-fit: cover;
+    height: 200px;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.card-title {
+    font-size: 1.5rem;
+}
+
+.card-text {
+    color: #666;
+}
+
+.btn {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}

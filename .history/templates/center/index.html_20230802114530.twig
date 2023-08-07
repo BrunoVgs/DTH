@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CenterController!{% endblock %}
+
+{% block body %}
+    <style>
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-img-top {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            object-fit: cover;
+            height: 200px;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+        }
+
+        .card-text {
+            color: #656;
+        }
+
+        .btn {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+    </style>
+<body>
+    <div class="container mt-4">
+        <div class="card">
+            <img src="https://via.placeholder.com/100" class="card-img-top" alt="Centre de Don">
+            <div class="card-body">
+                <!-- Informations du centre de don -->
+                <h5 class="card-title">Centre de Don XYZ</h5>
+                <p class="card-text">Adresse: 123 Rue du Don, Ville</p>
+                <p class="card-text">Places disponibles: 10</p>
+
+                <!-- Bouton "Prendre Rendez-vous" -->
+                <a href="#" class="btn btn-primary">Prendre Rendez-vous</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

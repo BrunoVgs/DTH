@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CenterController!{% endblock %}
+
+{% block body %}
+    {% block stylesheets %}
+    <!-- Icons font CSS-->
+    <link href="{{ asset('css/center.css') }}" rel="stylesheet" media="all">
+    {% endblock %}
+
+<div class="card">
+  <div class="card-content">
+    <h2>Nom du Centre de Don</h2>
+    <p>Adresse du Centre de Don</p>
+    <p>Places disponibles : 10</p>
+  </div>
+  <div class="card-button">
+    <a href="#" class="rounded-button">Prendre Rendez-vous</a>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+<?php
+
+namespace App\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+
+class AdminController extends AbstractController
+{
+    #[Route('/admin/', name: 'admin')]
+    public function index(): Response
+    {
+
+        $user = $this->findAll();
+
+        return $this->render('admin/index.html.twig', [
+            'controller_name' => 'AdminController',
+        ]);
+    }
+
+    #[Route('/admin/user', name: 'admin_user')]
+    public function users(): Response
+    {
+        return $this->render('admin/users.html.twig', [
+            'controller_name' => 'AdminController',
+        ]);
+    }
+}

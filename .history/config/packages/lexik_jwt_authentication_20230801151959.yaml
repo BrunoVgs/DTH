@@ -1,0 +1,13 @@
+lexik_jwt_authentication:
+    token_extractors:
+        authorization_header:
+            enabled: true
+            prefix: Bearer
+            name: Authorization
+
+    encoder:
+        signature_algorithm: HS256
+
+    secret_key: '%env(APP_SECRET)%'
+    public_key: '%env(resolve:JWT_PUBLIC_KEY)%'
+    pass_phrase: '%env(JWT_PASSPHRASE)%'

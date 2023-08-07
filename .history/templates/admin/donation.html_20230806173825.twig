@@ -1,0 +1,36 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block body %}
+<div class='container-fluid'>
+    <h1>Past Appointments</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Time</th>
+                <th>User</th>
+                <th>Center</th>
+                <th>Blood Group</th>
+                <th>Medication</th>
+                <th>Validation</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for appointment in appointments %}
+                <tr>
+                    <td>{{ appointment.appointmentDateTime|date('Y-m-d') }}</td>
+                    <td>{{ appointment.appointmentDateTime|date('H:i') }}</td>
+                    <td>{{ appointment.user.Firstname }} {{ appointment.user.Lastname }}</td>
+                    <td>{{ appointment.collectionCenter.name }}</td>
+                    <td>{{ appointment.bloodGroup }}</td>
+                    <td>{{ appointment.medication}}</td>
+                    <td>
+                        {# Add the validation form and buttons here #}
+                        {# e.g., a form with a button to mark the appointment as validated #}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block body %}
+<div class='container-fluid'>
+    <h1>Rendez-vous passés</h1>
+    <form id="donationForm" action="{{ path('create_donation') }}" method="post">
+        <div class="row">
+            <div class="col-md-12 text-right">
+                <button id="selectAllBtn" class="btn custom-btn-primary" style="margin: 5px 0px;">Tout sélectionner</button>
+                <button id="deselectAllBtn" class="btn custom-btn-warning" style="margin: 5px 0px;">Tout désélectionner</button>
+                <button type="submit" id="validateBtn" class="btn custom-btn-success" style="display: none;">Valider la sélection</button>
+            </div>
+        </div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Heure</th>
+                    <th>Utilisateur</th>
+                    <th>Centre</th>
+                    <th>Groupe sanguin</th>
+                    <th>Prise de médication</th>
+                    <th>Validation</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for appointment in appointments %}
+                    <tr>
+                        <td>{{ appointment.appointmentDateTime|date('Y-m-d') }}</td>
+                        <td>{{ appointment.appointmentDateTime|date('H:i') }}</td>
+                        <td>{{ appointment.user.Firstname }} {{ appointment.user.Lastname }}</td>
+                        <td>{{ appointment.collectionCenter.name }}</td>
+                        <td>{{ appointment.bloodGroup }}</td>
+                        <td>{{ appointment.medication ? 'Oui' : 'Non' }}</td>
+                        <td>
+                            <input type="hidden" name="appointment_dates[]" value="{{ appointment.appointmentDateTime|date('Y-m-d') }}">
+                            <input type="hidden" name="appointment_times[]" value="{{ appointment.appointmentDateTime|date('H:i') }}">
+                            <input type="hidden" name="user_firstname[]" value="{{ appointment.user.Firstname }}">
+                            <input type="hidden" name="user_lastname[]" value="{{ appointment.user.Lastname }}">
+                            <input type="hidden" name="center_names[]" value="{{ appointment.collectionCenter.name }}">
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </form>
+</div>
+
+
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ asset('js/donation.js') }}"></script>
+{% endblock %}

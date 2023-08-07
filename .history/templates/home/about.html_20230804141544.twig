@@ -1,0 +1,113 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}À Propos - DonneTonHemoglobine{% endblock %}
+
+{% block body %}
+    {% block stylesheets %}
+    <link href="{{ asset('css/about.css') }}" rel="stylesheet" media="all">
+    {% endblock %}
+
+    <div class="about-page">
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <h1 class="text-center mb-5 custom-title">À Propos de DonneTonHemoglobine</h1>
+
+                    <!-- Notre mission -->
+                    <div class="custom-card mission-card">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h2 class="titre custom-title">Notre Mission</h2>
+                                    <p class="texte custom-paragraph">
+                                        Chez DonneTonHemoglobine, notre mission est de sauver des vies en encourageant le don de sang.
+                                        Nous croyons que chaque don de sang compte et peut faire une différence significative dans la
+                                        vie de quelqu'un en besoin. Nous nous engageons à fournir un approvisionnement constant en sang
+                                        pour les hôpitaux et les centres médicaux de notre région, et à sensibiliser la communauté 
+                                        sur l'importance vitale du don de sang. Nous organisons régulièrement des campagnes de don de sang
+                                        dans les collectivités locales pour encourager la participation et sensibiliser davantage de 
+                                        personnes à cette noble cause. En donnant du sang, vous pouvez contribuer à sauver des vies et
+                                        apporter un réel soutien aux patients qui ont besoin de transfusions sanguines pour survivre.
+                                    </p>
+                                    <a href="{{ path('mission')}}" class="btn">En savoir plus</a>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="circle-image">
+                                    <img src="{{ asset('images/about/01.jpg') }}" alt="Mission" class="rounded-circle">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space"></div>
+                    <!-- Notre histoire -->
+                    <div class="custom-card histoire-card">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="circle-image">
+                                    <img src="{{ asset('images/about/02.jpg') }}" alt="Histoire" class="rounded-circle">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h2 class="titre custom-title">Notre Histoire</h2>
+                                <p class="texte custom-paragraph">
+                                    Fondée en 2023 par Bruno Veigas, DonneTonHemoglobine est née de la volonté de répondre à un besoin crucial dans notre communauté. 
+                                    En constatant le manque d'approvisionnement en sang dans les hôpitaux et les défis associés à la sensibilisation sur le don de sang, 
+                                    nous avons décidé de créer cette plateforme pour faciliter le processus de don et encourager davantage de personnes à donner du sang.
+                                    Depuis notre création, nous avons travaillé sans relâche pour promouvoir le don de sang et mobiliser la communauté autour de cette cause vitale.
+                                    Nous avons organisé de nombreux événements de collecte de sang réussis, permettant de sauver des centaines de vies. Notre équipe dévouée de
+                                    bénévoles et de professionnels de la santé travaille ensemble pour garantir que chaque don de sang est utilisé de manière efficace et 
+                                    responsable pour répondre aux besoins des patients dans les hôpitaux de notre région. Nous sommes fiers des réalisations de DonneTonHemoglobine
+                                    et nous sommes déterminés à poursuivre notre mission de sauver des vies grâce au don de sang.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2 class="custom-title">Nos Valeurs</h2>
+                    <ul>
+                        <li><strong>Engagement :</strong> Nous sommes engagés à sauver des vies en assurant un approvisionnement régulier en sang pour les patients dans le besoin.</li>
+                        <li><strong>Intégrité :</strong> Nous agissons avec intégrité et respectons la confidentialité des donneurs et des receveurs de sang.</li>
+                        <li><strong>Solidarité :</strong> Nous croyons en la solidarité et encourageons la participation active de la communauté pour sauver des vies.</li>
+                        <li><strong>Qualité :</strong> Nous nous engageons à maintenir des normes élevées de qualité et d'hygiène dans tous nos processus de collecte de sang.</li>
+                        <li><strong>Transparence :</strong> Nous sommes transparents dans nos opérations et rendons compte de nos actions envers la communauté.</li>
+                    </ul>
+
+                    <h2 class="custom-title">Comment Vous Pouvez Nous Aider</h2>
+                    <p class="texte custom-paragraph">
+                        Vous pouvez aider DonneTonHemoglobine de différentes manières :
+                    </p>
+                    <ul>
+                        <li class="texte custom-paragraph"><strong>Don de Sang :</strong> Rejoignez notre communauté de donneurs de sang et faites un don de vie.</li>
+                        <li class="texte custom-paragraph"><strong>Sensibilisation :</strong> Partagez notre cause avec votre entourage et aidez-nous à sensibiliser davantage de personnes sur l'importance du don de sang.</li>
+                        <li class="texte custom-paragraph"><strong>Bénévolat :</strong> Si vous êtes passionné par notre mission, vous pouvez vous impliquer en tant que bénévole dans nos événements et campagnes.</li>
+                        <li class="texte custom-paragraph"><strong>Partenariat :</strong> Si vous êtes une organisation ou une entreprise partageant nos valeurs, nous serions ravis de collaborer avec vous pour étendre notre impact.</li>
+                    </ul>
+
+                     <!-- Notre Équipe -->
+                    <div class="custom-card equipe-card">
+                    <h2 class="titre custom-title">Notre Équipe</h2>
+                    <p class="texte custom-paragraph">
+                        L'équipe de DonneTonHemoglobine est composée de professionnels de la santé dévoués et de bénévoles engagés. Nous sommes fiers d'avoir une équipe bien formée d'infirmières hautement qualifiées qui effectuent les prélèvements sanguins avec compétence et sérieux.
+                    </p>
+
+                    <p class="texte custom-paragraph">
+                        Nos infirmières sont spécialement formées pour assurer une expérience agréable et confortable lors du don de sang. Elles sont compétentes dans l'identification des veines appropriées pour le prélèvement sanguin et veillent à ce que toutes les procédures soient réalisées dans des conditions d'hygiène strictes pour garantir la sécurité des donneurs et des receveurs de sang.
+                    </p>
+
+                    <p class="texte custom-paragraph">
+                        En plus de notre équipe d'infirmières, nous avons également des bénévoles dévoués qui soutiennent nos événements de collecte de sang et contribuent à sensibiliser la communauté sur l'importance du don de sang. Chaque membre de notre équipe partage une passion commune pour sauver des vies et travaille ensemble pour atteindre notre mission.
+                    </p>
+
+                    <p class="texte custom-paragraph">
+                        Nous croyons en la valeur du travail d'équipe et de la collaboration. Chaque personne impliquée dans DonneTonHemoglobine joue un rôle essentiel dans la réalisation de notre mission de sauver des vies grâce au don de sang. Nous sommes fiers de notre équipe et de son engagement envers la santé et le bien-être de notre communauté.
+                    </p>
+                </div>
+                    <p class="text-center mt-5"></p>
+                    <div class="text-center mt-5">
+                        <button class="btn">Contactez-nous</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

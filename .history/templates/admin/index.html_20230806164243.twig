@@ -1,0 +1,105 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block body %}
+    <div class='panels'>
+        <h1>Backoffice</h1>
+        <div class="row">
+            <div class="col-md-3 mb-4">
+                <div class="card bg-primary text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">Messagerie</h5>
+                        <p class="card-text">Contenu de la messagerie ici.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 mb-4">
+                <div class="card bg-success text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">Donations</h5>
+                        <p class="card-text">Contenu des donations ici.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 mb-4">
+                <div class="card bg-info text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">Utilisateurs enregistrés</h5>
+                        <p class="card-text">Contenu des utilisateurs enregistrés ici.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 mb-4">
+                <div class="card bg-warning text-dark">
+                    <div class="card-body">
+                        <h5 class="card-title">Campagnes en cours</h5>
+                        <p class="card-text">Contenu des campagnes en cours ici.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class='container-fluid'>
+        <!-- Panneau pour la liste des derniers dons -->
+        <div id="section-derniers-dons" class="panel panel-success">
+            <div class="panel-heading">
+                <h3 class="panel-title">Liste des derniers dons</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Groupe sanguin</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>01/08/2023</td>
+                                    <td>A+</td>
+                                </tr>
+                                <tr>
+                                    <td>30/07/2023</td>
+                                    <td>O-</td>
+                                </tr>
+                                <!-- Ajoutez ici les autres dons récents -->
+                            </tbody>
+                        </table>
+                        <a href="#section-derniers-dons" class="btn btn-primary">Voir tout</a>
+                    </div>
+                    <!-- Ajouter une nouvelle colonne pour le deuxième tableau -->
+                    <div class="col-md-6">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Nom</th>
+                                    <th>Email</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Utilisateur 1</td>
+                                    <td>user1@example.com</td>
+                                </tr>
+                                <tr>
+                                    <td>Utilisateur 2</td>
+                                    <td>user2@example.com</td>
+                                </tr>
+                                <!-- Ajoutez ici les autres utilisateurs -->
+                            </tbody>
+                        </table>
+                        <a href="#section-utilisateurs" class="btn btn-primary">Voir tout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rest of the content goes here (if any) -->
+
+{% endblock %}

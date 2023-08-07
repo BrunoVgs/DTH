@@ -1,0 +1,18 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block content %}
+<div class="container">
+    <h1>Modifier les informations de l'utilisateur</h1>
+    <form method="post" action="{{ path('admin_user_edit', {'id': user.id}) }}">
+        {# Ajoutez ici les champs de formulaire pour éditer les informations de l'utilisateur #}
+        {# Par exemple, pour le prénom et le nom : #}
+        <label for="firstname">Prénom :</label>
+        <input type="text" id="firstname" name="firstname" value="{{ user.firstname }}" required>
+
+        <label for="lastname">Nom :</label>
+        <input type="text" id="lastname" name="lastname" value="{{ user.lastname }}" required>
+
+        <button type="submit" class="btn btn-primary">Enregistrer</button>
+    </form>
+</div>
+{% endblock %}

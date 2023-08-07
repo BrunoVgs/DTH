@@ -1,0 +1,41 @@
+
+  .card {
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  .card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  .card-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  .card-text {
+    font-size: 16px;
+    color: #6c757d;
+    margin-bottom: 12px;
+  }
+  .btn {
+    border-radius: 30px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  .btn-danger {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+  }
+  .btn-danger:hover {
+    background-color: #c82333;
+  }
+  .btn-danger:focus {
+    box-shadow: none;
+  }
+  .btn-danger:active {
+    background-color: #bd2130;
+  }

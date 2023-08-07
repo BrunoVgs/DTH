@@ -1,0 +1,35 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block body %}
+    <div class="container-fluid">
+        <h1>Modifier les informations du centre de collecte</h1>
+        <form method="post" action="#">
+            <div class="form-group">
+                <label for="name">Nom :</label>
+                <input type="text" id="name" name="name" class="form-control" value="{{ center.name }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="address">Adresse :</label>
+                <input type="text" id="address" name="address" class="form-control" value="{{ center.address }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="postalcode">Code Postal :</label>
+                <input type="text" id="postalcode" name="postalcode" class="form-control" value="{{ center.postalCode }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="city">Ville :</label>
+                <input type="text" id="city" name="city" class="form-control" value="{{ center.city }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="availableseats">Places disponibles :</label>
+                <input type="number" id="availableseats" name="availableseats" class="form-control" value="{{ center.availableSeats }}" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Enregistrer</button>
+        </form>
+    </div>
+{% endblock %}

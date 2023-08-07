@@ -1,0 +1,102 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}<title>Tableau de bord</title> {% endblock %}
+
+{% block body %}
+<div class='panels'>
+    <h1>Gestion du site</h1>
+    <div class="row">
+        <div class="col-md-3 mb-4">
+            <div class="card bg-primary text-white">
+                <div class="card-body">
+                    <h5 class="card-title">Messagerie</h5>
+                    <p class="card-text">Nombre de messages : {{ messages|length }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-4">
+            <div class="card bg-success text-white">
+                <div class="card-body">
+                    <h5 class="card-title">Donations</h5>
+                    <p class="card-text">Nombre de donations : {{ donations|length }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-4">
+            <div class="card bg-info text-white">
+                <div class="card-body">
+                    <h5 class="card-title">Utilisateurs enregistrés</h5>
+                    <p class="card-text">Nombre d'utilisateurs : {{ users|length }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-4">
+            <div class="card bg-warning text-dark">
+                <div class="card-body">
+                    <h5 class="card-title">Campagnes en cours</h5>
+                    <p class="card-text">Nombre de campagnes : {{ center|length }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <div class='container-fluid'>
+        <!-- Panneau pour la liste des derniers dons -->
+        <div id="section-derniers-dons" class="panel panel-success">
+            <div class="panel-heading">
+                <h3 class="panel-title">Liste des derniers dons</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Centre de collecte</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for donation in donations %}
+                                <tr>
+                                    <td>{{ donation.date.format('Y-m-d H:i:s') }}</td>
+                                    <td>{{ donation.collectionCenter }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        <a href="#" class="btn btn-primary">Voir tout</a>
+                    </div>
+                    <!-- Ajouter une nouvelle colonne pour le deuxième tableau -->
+                    <div class="col-md-6">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Nom</th>
+                                    <th>Email</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for user in users %}
+                                <tr>
+                                    <td>{{ user.firstname }} {{ user.lastname }}</td>
+                                    <td>{{ user.email }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        <a href="{{ path('admin_user') }}" class="btn btn-primary">Voir tout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rest of the content goes here (if any) -->
+
+{% endblock %}
