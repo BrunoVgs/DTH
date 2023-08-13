@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col-md-3 border-right">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                <img class="rounded-circle mt-5" width="150px" src={{ asset('images/vector.png') }}>
+                <img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
                 <span class="font-weight-bold">{{ user.getFirstname() }} {{ user.getLastname() }}</span>
                 <span class="text-black-50">{{ user.getEmail() }}</span>
                 <span> </span>
@@ -51,7 +51,7 @@
                         <div class="col-md-6 mb-3">
                             <label class="labels">Poids (en kg)</label>
                             <input type="text" name="weight" class="form-control" placeholder="Poids" value="{{ user.getWeight() }}">
-                        </div>  
+                        </div>
                         <div class="col-md-6 mb-3">
                             <label class="labels">Taille (en cm)</label>
                             <input type="text" name="height" class="form-control" value="{{ user.getHeight() }}" placeholder="Taille">
@@ -89,7 +89,7 @@
                         <div class="row">
                             <ul class="donations-list">
                                 {% for donation in donations %}
-                                    <li>{{ loop.index }}E DONATION LE {{ donation.date|date('d/m/Y') }} A : {{ donation.collectionCenter }}</li>
+                                    <li>{{ loop.index }}E DONATION LE {{ donation.date|date('d/m/Y') }} AU {{ donation.collectionCenter }}</li>
                                 {% endfor %}
                             </ul>
                         </div>

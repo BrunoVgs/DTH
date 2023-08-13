@@ -27,4 +27,7 @@
     font-style: italic;
     color: #888;
 }
+.rounded-circle mt-5 {
+    margin-top: 2px;
+}
 
