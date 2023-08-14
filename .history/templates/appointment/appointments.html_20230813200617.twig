@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes rendez-vous{% endblock %}
+
+
+{% block body %}   
+<link rel="stylesheet" href="{{ asset('css/appointments.css') }}">
+   <div class="content">
+    
+    <div class="container">
+      <h2 class="mb-5">Liste de mes rendez-vous</h2>
+      
+
+      <div class="table-responsive custom-table-responsive">
+
+        <table class="table custom-table">
+          <thead>
+            <tr>  
+              <th scope="col">Date</th>
+              <th scope="col">Heure</th>
+              <th scope="col">Groupe sanguin</th>
+              <th scope="col">Prise Médicamenteuse</th>
+              <th scope="col">Centre de collecte</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for appointment in appointments %}
+                <tr scope="row">
+                    <td>{{ appointment.appointmentDateTime|date('d/m/Y') }}</td>
+                    <td>{{ appointment.appointmentDateTime|date('H:i') }}</td>
+                    <td>{{ appointment.bloodGroup }}</td>
+                    <td>{% if appointment.medication === 1 echo('Oui') else echo('Non')</td>
+                    <td>{{ appointment.collectionCenter.name }}</td>
+                </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
