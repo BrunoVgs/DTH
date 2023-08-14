@@ -133,7 +133,9 @@ body {
 
 @media screen and (max-width: 767px) {
   body {
-      background: url('../images/form-bg.jpg') center/cover no-repeat;
+    background: url('../images/form-bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
   }
 
   .p-t-100, .p-t-180, .p-t-20, .p-t-30, .p-b-100 {

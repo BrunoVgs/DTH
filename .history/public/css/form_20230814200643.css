@@ -7,9 +7,8 @@
 
 body {
 
-  background: url('../images/form-bg.jpg');
+  background: url('../images/form-bg.jpg') top/ no-repeat;
   background-repeat: no-repeat;
-  background-position: center;
 }
 
 .p-t-100 {

@@ -145,7 +145,8 @@
     }
 
     .card-2 .card-heading {
-        width: 20%;
+        width: 100%;
+        display: none;
         background-position: center center;
         background-size: cover;
     }
